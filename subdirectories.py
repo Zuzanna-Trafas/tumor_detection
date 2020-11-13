@@ -14,11 +14,11 @@ if not os.path.exists("validation"):
 
 path = './brain_tumor_dataset'
 for f in os.listdir(path):
-    images = os.listdir(path + "/" + f)
-    for i in range(len(images)):
-        if i < 0.05 * len(images):
-            shutil.copy(path + "/" + f + "/" + images[i], 'test/' + f + str(i) + ".jpg")
-        elif i < 0.8 * len(images):
-            shutil.copy(path + "/" + f + "/" + images[i], 'train/' + f + str(i) + ".jpg")
+    images = os.listdir(f'{path}/{f}')
+    for n, image in enumerate(images):
+        if n < 0.05 * len(images):
+            shutil.copy(f'{path}/{f}/{image}', f'test/{f + str(n)}.jpg')
+        elif n < 0.8 * len(images):
+            shutil.copy(f'{path}/{f}/{image}', f'train/{f + str(n)}.jpg')
         else:
-            shutil.copy(path + "/" + f + "/" + images[i], 'validation/' + f + str(i) + ".jpg")
+            shutil.copy(f'{path}/{f}/{image}', f'validation/{f + str(n)}.jpg')
