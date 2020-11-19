@@ -34,11 +34,14 @@ def crop_image(image_name, result_name):
 
 if __name__ == '__main__':
 
-    if not os.path.exists(f'{SOURCE_PATH}/yes'):
-        os.makedirs(f'{SOURCE_PATH}/yes')
+    if not os.path.exists(f'{RESULT_PATH}'):
+        os.makedirs(f'{RESULT_PATH}')
 
-    if not os.path.exists(f'{SOURCE_PATH}/no'):
-        os.makedirs(f'{SOURCE_PATH}/no')
+    if not os.path.exists(f'{RESULT_PATH}/yes'):
+        os.makedirs(f'{RESULT_PATH}/yes')
+
+    if not os.path.exists(f'{RESULT_PATH}/no'):
+        os.makedirs(f'{RESULT_PATH}/no')
 
     for directory in os.listdir(SOURCE_PATH):
         images = os.listdir(f'{SOURCE_PATH}/{directory}')
